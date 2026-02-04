@@ -11,7 +11,7 @@ class paymentController extends Controller
     //
     
     public function __construct(){   
-        Veritrans::$serverKey = 'Mid-server-8QwXN6peMqBFwonypG-rK4Jy';
+        // Veritrans::$serverKey = 'Mid-server-8QwXN6peMqBFwonypG-rK4Jy';//
         Veritrans::$isProduction = false;
     }
 }
