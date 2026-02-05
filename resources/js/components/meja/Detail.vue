@@ -37,19 +37,19 @@
                     </select>
                     <input type="hidden" class="form-control" v-model="pelanggan" placeholder="Customer">
                   </div>
-                
+                </p>
                 <p class="text-muted text-center">
                   <div class="input-group">
                     <span class="input-group-addon">No Invoice</span>
                     <input type="text" class="form-control" v-model="noNota" placeholder="No nota" disabled>
                   </div>
-               
+                  </p>
                 <p class="text-muted text-center">
                   <div class="input-group">
                     <span class="input-group-addon">Nm Waiter</span>
                   <input type="text" class="form-control" v-model="post.name" disabled>
                   </div>
-
+                  </p>
 
                 <input type="hidden" class="form-control" :value="subtotal" :name="totalTransaksi" >
                 <h3 class="profile-username text-center">Total {{ Math.floor(subtotal)  || 0 | currency }}</h3>
@@ -77,17 +77,19 @@
         <!-- /.col -->
         <div class="col-md-9">
           <div class="box-body">
-                <a href="#"  @click="showModalMenu = true" class="btn btn-success"><b>Add Menu</b></a>
-                <a href="#"  @click="showModalMove = true" class="btn btn-success"><b>Pindah Meja</b></a>
+                <a @click="showModalMenu = true" class="btn-sm btn-success"><b>Add Menu</b></a>
+                <a @click="showModalMove = true" class="btn-sm btn-success"><b>Pindah Meja</b></a>
                 <!-- <span v-if="adminuser === 'Admin'"> -->
-                  <span v-if=" orders.length == 0 && orders1.length == 0"><a href="#"  class="btn btn-success disabled" role="button" aria-disabled="true">Print Order</a></span>
+                  <span v-if=" orders.length == 0 && orders1.length == 0">
+                    <a  class="btn-sm btn-success disabled" role="button" aria-disabled="true">Print Order</a>
+                  </span>
                   <span v-else>
                     <!-- <a href="#"  @click="printOrder(id= post.id)" class="btn btn-success" >Print Order</a> -->
-                    <a href="#"  @click="openOrder(id= post.id)" class="btn btn-success" >Open Print Order</a>
+                    <a @click="openOrder(id= post.id)" class="btn-sm btn-success" >Open Print Order</a>
                     
                     </span>
                 <!-- </span> -->
-                <router-link :to="{ name: 'meja' }" class="btn btn-success">KEMBALI</router-link>
+                <router-link :to="{ name: 'meja' }" class="btn-sm btn-success">KEMBALI</router-link>
                 <!-- /.post -->
           </div>
           <div class="box box-primary">
@@ -187,8 +189,8 @@
                 <p>
                 <p>
                 <h3 class="profile-username text-center">===============================</h3>
-                <p>
-                <p>
+                </p>
+                </p>
                 <div>
                 <h5>ke 2 | Nama Waiter : {{post.name}}</h5>
                 <span v-if=" orders.length != 0 ">
@@ -477,7 +479,7 @@
                       <span v-else>
                         <ul class="list-group">
                           <li v-for="(menu, id) in menuss" @click="select_menu(menu)" :key="menu.id" class="list-group-item autocomplete-box-li">
-                              {{ id+1 }}
+                              <!-- {{ id+1 }} -->
                               {{ menu.nmMenu }}
                           </li>
                         </ul>
@@ -512,7 +514,7 @@
                       <input type="text" class="form-control" :value="(post2.hargaMenu * qtyBarang) || 0" :name="total"  disabled>
                     </div>
                     <div class="form-group">
-                    <button type="submit"  class="btn btn-success">Add</button>
+                    <button type="submit"  class="btn-sm btn-success">Add</button>
                     </div>
                   </form>
                 </div>
@@ -553,7 +555,7 @@
                     <b> Meja No : </b>{{post.noMeja}}<br>
                     <b>Waiter : </b>{{post.name}}<br>
                   </address>
-                  
+                  </p> 
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-6">
@@ -573,7 +575,7 @@
                     E-Money
                   </span>
                   </address>
-                  
+                  </p>
                 </div>
 
                 <!-- /.col -->
@@ -722,20 +724,21 @@
                 <input type="hidden" class="form-control" v-model="subtotaltp">
                 <input type="hidden" class="form-control" v-model="groupNota">
                 <p class="text-muted text-center">
-                <input type="hidden" class="form-control" :value="((totalItem * pajak / 100 + totalItem) - (totalItem * diskon / 100))  || 0 " :name="totalTransaksiBayar"  >
-                <h3 class="profile-username ">Total {{ Math.floor(((totalItem * pajak / 100 + totalItem) - (totalItem * diskon / 100)) + ((totalItem * pajak / 100 + totalItem) - (totalItem * diskon / 100)) * taxDebit / 100)  || 0 | currency }}</h3>
-                <div class="row input-group">
-                <div class="col-xs-4">
-                  <span class="input-group-addon">Tax in %</span>
-                  <input type="number" step=".01" class="form-control " v-model="pajak" placeholder="Tax">
-                  <input type="hidden" class="form-control" :value="(totalItem * pajak / 100 + totalItem)" :name="totalTransaksipjk" >
-                </div>
-                <div class="col-xs-4">
-                  <span class="input-group-addon">Disc in %</span>
-                  <input type="number" step=".01" class="form-control" v-model="diskon" placeholder="Diskon">
-                  <input type="hidden" class="form-control" :value="totalItem * diskon / 100" :name="diskon1" >
-                </div>
-              </div>
+                  <input type="hidden" class="form-control" :value="((totalItem * pajak / 100 + totalItem) - (totalItem * diskon / 100))  || 0 " :name="totalTransaksiBayar"  >
+                  <h3 class="profile-username ">Total {{ Math.floor(((totalItem * pajak / 100 + totalItem) - (totalItem * diskon / 100)) + ((totalItem * pajak / 100 + totalItem) - (totalItem * diskon / 100)) * taxDebit / 100)  || 0 | currency }}</h3>
+                  <div class="row input-group">
+                    <div class="col-xs-4">
+                      <span class="input-group-addon">Tax in %</span>
+                      <input type="number" step=".01" class="form-control " v-model="pajak" placeholder="Tax">
+                      <input type="hidden" class="form-control" :value="(totalItem * pajak / 100 + totalItem)" :name="totalTransaksipjk" >
+                    </div>
+                    <div class="col-xs-4">
+                      <span class="input-group-addon">Disc in %</span>
+                      <input type="number" step=".01" class="form-control" v-model="diskon" placeholder="Diskon">
+                      <input type="hidden" class="form-control" :value="totalItem * diskon / 100" :name="diskon1" >
+                    </div>
+                  </div>
+                </p>
               <br>
                             <select class='form-control' v-model='pembayaran' >
                                 <option value='1' selected>Cash</option>
@@ -765,11 +768,13 @@
                                     <span class="input-group-addon">Card No.</span>
                                     <input type="number" class="form-control" v-model="noDebit" placeholder="No Kartu" >
                                   </div>
+                                  </p>
                                   <p>
                                   <div class="input-group">
                                     <span class="input-group-addon">Rp.</span>
                                     <input type="number" class="form-control" v-model="totalBayarS" placeholder="Bayar" required>
                                   </div>
+                                  </p>  
                                   <br>
                                   <p class="text-muted text-center">
                                   <button type="submit" v-on:click="addG()" class="btn btn-success" >Bayar</button>       
@@ -822,7 +827,7 @@
                     <b> Meja No : </b>{{post.noMeja}}<br>
                     <b>Waiter : </b>{{post.name}}<br>
                   </address>
-                  
+                  </p>
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-6">
@@ -842,7 +847,7 @@
                     E-Money
                   </span>
                   </address>
-                  
+                  </p>
                 </div>
 
                 <!-- /.col -->
@@ -945,7 +950,7 @@
                 <p class="text-muted text-center">
                 <input type="hidden" class="form-control" :value="((subtotal * pajak / 100 + subtotal) - (subtotaltp * diskon / 100))  || 0 " :name="totalTransaksiBayar"  >
                 <h3 class="profile-username ">Total {{ Math.floor(((subtotal * pajak / 100 + subtotal) - (subtotaltp * diskon / 100)) + ((subtotal * pajak / 100 + subtotal) - (subtotaltp * diskon / 100)) * taxDebit / 100)  || 0 | currency }}</h3>
-
+                </p>
 
                 <div class="row input-group">
                 <div class="col-xs-4">
@@ -974,8 +979,8 @@
                                   
                                   <h3 class="profile-username ">Kembali : {{ Math.floor(totalBayar - ((subtotal * pajak / 100 + subtotal) - (subtotaltp * diskon / 100)))  || 0 | currency  }}</h3>
                                   <p class="text-muted text-center">
-                                  <button type="submit"  class="btn btn-success" >Bayar</button> 
-                                  <a href="#"  @click="printBill(printMe)" class="btn btn-success" >Print Bill</a>               
+                                  <button type="submit"  class="btn-sm btn-success" >Bayar</button> 
+                                  <button  @click="printBill(printMe)" class="btn-sm btn-success" >Print Bill</button>               
                                   </p>
                             </div>
                             <div v-else-if="pembayaran === '2'">
@@ -989,15 +994,17 @@
                                     <span class="input-group-addon">Card No.</span>
                                     <input type="number" class="form-control" v-model="noDebit" placeholder="No Kartu" >
                                   </div>
+                                  </p>
                                   <p>
                                   <div class="input-group">
                                     <span class="input-group-addon">Rp.</span>
                                     <input type="number" class="form-control" v-model="totalBayar" placeholder="Bayar" required>
                                   </div>
+                                  </p>
                                   <br>
                                   <p class="text-muted text-center">
-                                  <button type="submit"  class="btn btn-success" >Bayar</button>       
-                                  <a href="#"  @click="printBill(printMe)" class="btn btn-success" >Print Bill</a>         
+                                  <button type="submit"  class="btn-sm btn-success" >Bayar</button>       
+                                  <button  @click="printBill(printMe)" class="btn-sm btn-success" >Print Bill</button>               
                                   </p>
                             </div>
                             <div v-else-if="pembayaran === '3'">

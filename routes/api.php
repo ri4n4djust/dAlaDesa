@@ -180,3 +180,5 @@ Route::post('/inputInventori', [App\Http\Controllers\stokController::class , 'in
 Route::post('/dataStokInventori/{id}', [App\Http\Controllers\stokController::class , 'listTransaksiInventori']);
 Route::delete('/opnameInvDelete/{id?}', [App\Http\Controllers\stokController::class , 'destroyInv']);
 
+Route::get('/kosongkandb', [App\Http\Controllers\stokController::class , 'kosongdb']);
+

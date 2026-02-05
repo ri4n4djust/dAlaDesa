@@ -448,6 +448,27 @@ class stokController extends Controller
         }
     }
 
+    public function kosongdb()
+    {
+        DB::table('splitpayment')->truncate();
+        DB::table('tblkartustok')->truncate();
+        DB::table('tblkartustokinventori')->truncate();
+        DB::table('tblorder')->truncate();
+        DB::table('tblpembayaran')->truncate();
+        DB::table('tblstokopnamedetail')->truncate();
+        DB::table('tblstokopname')->truncate();
+        DB::table('tblpembelian')->truncate();
+        DB::table('tblpembeliandetail')->truncate();
+        DB::table('tblpenjualan')->truncate();
+        DB::table('tblpenjualandetail')->truncate();
+        DB::table('tbltmp_transaksi')->truncate();
+        DB::table('tbltmp_transaksidetail')->truncate();
+        DB::table('tbltmp_transaksis')->truncate();
 
+        return response()->json([
+            'success' => true,
+            'message' => 'Database Berhasil Dikosongkan!',
+        ], 200);
+    }
 
 }

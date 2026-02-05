@@ -11,13 +11,13 @@
                             <div v-if="post.status === '0' ">
                                 <div class="small-box bg-green">
                                     <div class="inner">
-                                    <h3>Meja:{{ post.noMeja }}</h3>
-                                    <p>{{ post.paxMeja }}</p>
-                                    <router-link :to="{name: 'editMeja', params: { id: post.id }}" class="btn btn-md btn-primary">EDIT</router-link>
-                                    
-                                    <button @click="showModalCekin = post.id" class="btn btn-md btn-success">
-                                      <font-awesome-icon icon="user-secret" />
-                                      CEK IN</button>
+                                      <h3>Meja:{{ post.noMeja }}</h3>
+                                      <p>{{ post.paxMeja }}</p>
+                                      <router-link :to="{name: 'editMeja', params: { id: post.id }}" class="btn btn-md btn-primary">EDIT</router-link>
+                                      
+                                      <button @click="showModalCekin = post.id" class="btn btn-md btn-success">
+                                        <font-awesome-icon icon="user-secret" />
+                                        CEK IN</button>
                                     </div>
                                     <div class="icon">
                                     <i class="ion ion-bag"></i>
@@ -63,6 +63,7 @@
                         <option v-for='waiter in waiters' v-bind:value='waiter' :key="waiter.id">{{waiter.name}}</option>
                       </select>
                       </div>
+                    </p>
                     <div class="input-group">
                       <input type="hidden" class="form-control" v-model="waiter.id">
                       <input type="hidden" name="noTable" :value="showModalCekin">
@@ -70,12 +71,14 @@
                     <p class="text-muted text-center">
                     <div class="input-group">
                       <span class="input-group-addon">Pax</span>
-                      <input type="text" class="form-control" v-model="paxMeja" @keypress="onlyNumber">
+                      <input type="number" class="form-control" v-model="paxMeja" @keypress="onlyNumber">
                     </div>
+                    </p>
                     <p class="text-muted text-center">
                     <div class="input-group">
-                    <button type="submit" class="btn btn-md btn-success">Cek In</button>
+                    <button type="submit" class="btn-sm btn-success">Cek In</button>
                     </div>
+                    </p>
                   </form>
                 </div>
                 <div v-else>
