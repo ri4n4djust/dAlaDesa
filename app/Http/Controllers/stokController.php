@@ -464,6 +464,7 @@ class stokController extends Controller
         DB::table('tbltmp_transaksi')->truncate();
         DB::table('tbltmp_transaksidetail')->truncate();
         DB::table('tbltmp_transaksis')->truncate();
+        DB::table('tblinventori')->update(['stkInventori' => 0]);
 
         return response()->json([
             'success' => true,
