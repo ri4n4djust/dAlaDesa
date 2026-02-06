@@ -1,121 +1,31 @@
 /*!
-  * Bootstrap v4.5.3 (https://getbootstrap.com/)
-  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Bootstrap v4.6.2 (https://getbootstrap.com/)
+  * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 
 /*!
- * Sizzle CSS Selector Engine v2.3.5
- * https://sizzlejs.com/
- *
- * Copyright JS Foundation and other contributors
- * Released under the MIT license
- * https://js.foundation/
- *
- * Date: 2020-03-14
+ * Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ * Copyright 2024 Fonticons, Inc.
  */
 
 /*!
- * Vue.js v2.6.12
- * (c) 2014-2020 Evan You
+ * Vue.js v2.7.16
+ * (c) 2014-2023 Evan You
  * Released under the MIT License.
  */
 
 /*!
- * jQuery JavaScript Library v3.5.1
+ * jQuery JavaScript Library v3.7.1
  * https://jquery.com/
  *
- * Includes Sizzle.js
- * https://sizzlejs.com/
- *
- * Copyright JS Foundation and other contributors
+ * Copyright OpenJS Foundation and other contributors
  * Released under the MIT license
  * https://jquery.org/license
  *
- * Date: 2020-05-04T22:49Z
+ * Date: 2023-08-28T13:37Z
  */
-
-/*! ./browser */
-
-/*! ./functions */
-
-/*! ./html */
-
-/*! ./image */
-
-/*! ./js/init */
-
-/*! ./json */
-
-/*! ./modal */
-
-/*! ./pdf */
-
-/*! ./print */
-
-/*! ./raw-html */
-
-/*! ./sass/index.scss */
-
-/*! ./src/index.js */
-
-/*! exports provided: addWrapper, capitalizePrint, collectStyles, addHeader, cleanUp, isRawHTML */
-
-/*! exports provided: default */
-
-/*! no static exports found */
-
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-
-/*!***********************!*\
-  !*** ./src/js/pdf.js ***!
-  \***********************/
-
-/*!************************!*\
-  !*** ./src/js/html.js ***!
-  \************************/
-
-/*!************************!*\
-  !*** ./src/js/init.js ***!
-  \************************/
-
-/*!************************!*\
-  !*** ./src/js/json.js ***!
-  \************************/
-
-/*!*************************!*\
-  !*** ./src/js/image.js ***!
-  \*************************/
-
-/*!*************************!*\
-  !*** ./src/js/modal.js ***!
-  \*************************/
-
-/*!*************************!*\
-  !*** ./src/js/print.js ***!
-  \*************************/
-
-/*!***************************!*\
-  !*** ./src/js/browser.js ***!
-  \***************************/
-
-/*!****************************!*\
-  !*** ./src/js/raw-html.js ***!
-  \****************************/
-
-/*!****************************!*\
-  !*** multi ./src/index.js ***!
-  \****************************/
-
-/*!*****************************!*\
-  !*** ./src/js/functions.js ***!
-  \*****************************/
-
-/*!*****************************!*\
-  !*** ./src/sass/index.scss ***!
-  \*****************************/
 
 /**
  * @license
@@ -150,3 +60,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
+//! moment.js
+
+//! moment.js locale configuration
