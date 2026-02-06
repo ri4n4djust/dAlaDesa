@@ -1093,7 +1093,7 @@
         height: 100%;
       }
       #logono {
-        width: 60px;
+        width: 90px;
       }
 
       #lastOrder {
