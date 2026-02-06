@@ -81,7 +81,7 @@
                 <a @click="showModalMove = true" class="btn-sm btn-success"><b>Pindah Meja</b></a>
                 <!-- <span v-if="adminuser === 'Admin'"> -->
                   <span v-if=" orders.length == 0 && orders1.length == 0">
-                    <a  class="btn-sm btn-success disabled" role="button" aria-disabled="true">Print Order</a>
+                    <!-- <a  class="btn-sm btn-success disabled" role="button" aria-disabled="true">Print Order</a> -->
                   </span>
                   <span v-else>
                     <!-- <a href="#"  @click="printOrder(id= post.id)" class="btn btn-success" >Print Order</a> -->
