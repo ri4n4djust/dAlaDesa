@@ -754,7 +754,7 @@
                                   <input type="hidden" class="form-control" :value="Math.floor(totalBayarS - ((totalItem * pajak / 100 + totalItem) - (totalItem * diskon / 100)))" :name="kembalianS" >
                                   <h3 class="profile-username ">Kembali : {{ Math.floor(totalBayarS - ((totalItem * pajak / 100 + totalItem) - (totalItem * diskon / 100)))  || 0 | currency  }}</h3>
                                   <p class="text-muted text-center">
-                                  <button type="submit" v-on:click="addG()" class="btn btn-success" >Bayar</button> 
+                                  <button type="submit" v-on:click="addG()" class="btn btn-success" v-if="tombolBayar === true" >Bayar</button> 
                                   </p>
                             </div>
                             <div v-else-if="pembayaran === '2'">
@@ -777,7 +777,7 @@
                                   </p>  
                                   <br>
                                   <p class="text-muted text-center">
-                                  <button type="submit" v-on:click="addG()" class="btn btn-success" >Bayar</button>       
+                                  <button type="submit" v-on:click="addG()" class="btn btn-success" v-if="tombolBayar === true" >Bayar</button>       
                                           
                                   </p>
                             </div>
@@ -979,7 +979,7 @@
                                   
                                   <h3 class="profile-username ">Kembali : {{ Math.floor(totalBayar - ((subtotal * pajak / 100 + subtotal) - (subtotaltp * diskon / 100)))  || 0 | currency  }}</h3>
                                   <p class="text-muted text-center">
-                                  <button type="submit"  class="btn-sm btn-success" >Bayar</button> 
+                                  <button type="submit"  class="btn-sm btn-success" v-if="tombolBayar === true" >Bayar</button> 
                                   <button  @click="printBill(printMe)" class="btn-sm btn-success" >Print Bill</button>               
                                   </p>
                             </div>
@@ -1003,7 +1003,7 @@
                                   </p>
                                   <br>
                                   <p class="text-muted text-center">
-                                  <button type="submit"  class="btn-sm btn-success" >Bayar</button>       
+                                  <button type="submit"  class="btn-sm btn-success" v-if="tombolBayar === true">Bayar</button>       
                                   <button  @click="printBill(printMe)" class="btn-sm btn-success" >Print Bill</button>               
                                   </p>
                             </div>
@@ -1192,6 +1192,7 @@
               splitNota: [],
               groupNota: 0,
               kembalianS: '',
+              tombolBayar: true,
               //waitername : this.waiter.name,
               //optionLabel: users.nmBarang,
               // tglNota: new Date().toJSON().slice(0,10).replace(/-/g,'/'),
@@ -1800,11 +1801,13 @@
                 
             },
             PostTransaksi() {
+              
               let totalinv = Math.floor((this.subtotal * this.pajak / 100 + this.subtotal) - (this.subtotaltp * this.diskon / 100)) + ((this.subtotal * this.pajak / 100 + this.subtotal) - (this.subtotaltp * this.diskon / 100)) * this.taxDebit / 100;
               if(this.totalBayar < totalinv){
                 alert('Jumlah Bayar Kurang Dari Total Invoice');
                 }else{
                   // totalBayar = this.totalBayar;
+                  this.tombolBayar = false;
                   let uri = '/api/addTransaksi/store';
                   this.axios.post(uri, 
                   {
@@ -1830,11 +1833,13 @@
                       
                   }).then((response) => {
                           // this.$print(printMe);
+                          // response.data.success === true ? this.tombolBayar = false : this.tombolBayar = true;
                           window.print(printMe)
                           // this.totalBayar = '';
                           localStorage.removeItem('cartItems');
                           setTimeout(function(){
                               window.location.href = '/meja';
+                              this.tombolBayar = true;
                           }, 13000);           
                   }).catch(error => {
                       alert('error! bro');
